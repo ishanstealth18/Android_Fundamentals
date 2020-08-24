@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Activities_Intents_Homework</string>
+    <string name="say_hello">Say Hello</string>
+    <string name="count">Count</string>
+    <string name="count_val">0</string>
+    <string name="receive_data">Data</string>
+</resources>

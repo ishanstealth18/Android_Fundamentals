@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Activities_Intent_CodingChallenge</string>
+    <string name="text_one">TextOne</string>
+    <string name="text_two">TextTwo</string>
+    <string name="text_three">TextThree</string>
+    <string name="activity2_name">Second Activity</string>
+    <string name="main_content">MainContent</string>
+</resources>
