@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class SavedData_Activity extends AppCompatActivity {
 
+    private static final String logCat = SavedData_Activity.class.getSimpleName();
     private TextView displayData;
 
     @Override
