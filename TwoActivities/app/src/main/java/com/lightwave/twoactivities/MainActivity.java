@@ -27,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
         mMessageEditText = findViewById(R.id.editText_main);
         replyHeader = findViewById(R.id.text_header_reply);
         replyContent = findViewById(R.id.text_message_reply);
+
+        if(savedInstanceState != null)
+        {
+            boolean isVisible = savedInstanceState.getBoolean("reply_visible");
+            if(isVisible)
+            {
+                replyHeader.setVisibility(View.VISIBLE);
+                replyContent.setText(savedInstanceState.getString("reply_text"));
+                replyContent.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override
@@ -45,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d(logCat, "onStop");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if(replyHeader.getVisibility() == View.VISIBLE)
+        {
+            outState.putBoolean("reply_visible",true);
+            outState.putString("reply_text",replyContent.getText().toString());
+        }
     }
 
     @Override
