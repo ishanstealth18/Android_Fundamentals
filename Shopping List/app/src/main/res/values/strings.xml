@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Shopping_List</string>
+    <string name="item_1">Item 1</string>
+    <string name="apple">Apple</string>
+    <string name="requestItemButton">Button</string>
+    <string name="item_2">item 2</string>
+    <string name="rice">Rice</string>
+</resources>
