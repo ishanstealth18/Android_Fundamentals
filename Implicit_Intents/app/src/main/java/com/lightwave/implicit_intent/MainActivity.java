@@ -6,6 +6,7 @@ import androidx.core.app.ShareCompat;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -68,5 +69,17 @@ public class MainActivity extends AppCompatActivity {
                 .setChooserTitle("Share this text with: ")
                 .setText(shareStr)
                 .startChooser();
+    }
+
+    public void openCamera(View view) {
+        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(openCameraIntent.resolveActivity(getPackageManager()) != null)
+        {
+            startActivity(openCameraIntent);
+        }
+        else
+        {
+            Log.d(logTag,"Camera Intent cannot resolve!!");
+        }
     }
 }
