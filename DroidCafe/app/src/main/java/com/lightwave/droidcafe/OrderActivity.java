@@ -1,6 +1,7 @@
 package com.lightwave.droidcafe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -126,5 +127,18 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void processDatePicker(int year, int month, int day)
+    {
+        String day_string = Integer.toString(day);
+        String month_string = Integer.toString(month);
+        String year_string = Integer.toString(year);
+        displayToast("Date: "+year_string+"/"+month_string+"/"+day_string);
+    }
+
+    public void showDatePicker(View view) {
+        DialogFragment dateFragment = new DatePickerFragment();
+        dateFragment.show(getSupportFragmentManager(), getString(R.string.datePickerDialog));
     }
 }
