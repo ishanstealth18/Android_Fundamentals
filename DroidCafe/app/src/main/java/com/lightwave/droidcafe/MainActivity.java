@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import static java.lang.Thread.sleep;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MSG = "extra.MSG";
@@ -47,10 +49,23 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        Intent sendItemIntent = new Intent(this,OrderActivity.class);
+        switch (id)
+        {
+            case (R.id.action_contact):
+                return true;
+            case (R.id.action_favorites):
+                displayToast(getString(R.string.action_favorites_message));
+                return true;
+            case (R.id.action_order):
+                sendItemIntent.putExtra(EXTRA_MSG,R.string.action_order_message);
+                startActivity(sendItemIntent);
+                //displayToast(getString(R.string.action_order_message));
+                return true;
+            case (R.id.action_status):
+                displayToast(getString(R.string.action_status_message));
+                return true;
+            default:
         }
 
         return super.onOptionsItemSelected(item);
